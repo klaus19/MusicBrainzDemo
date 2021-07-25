@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MusicBrainz Android Client</string>
+     <string name="title_activity_maps">Map</string>
+    <string name="search_fab">content_description_search_fab</string>
+    <string name="search_view_predefined_text">Eiffel Tower</string>
+    <string name="search_view_hint">Enter the place name to search.</string>
+
+</resources>
