@@ -51,9 +51,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             searchFAB.setOnClickListener {
                 query = searchTextInputEditText.text.toString()
                 if (query.isEmpty()) {
-                    searchTextInputLayout.error = "Please enter the place to search"
+                    showToast(getString(R.string.search_bar_validation_error_message))
                 } else {
-                    searchTextInputLayout.error = null
                     if (totalPlaces.size > 0) {
                         mMap.clear()
                         totalPlaces.clear()
@@ -181,5 +180,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onStop() {
         timer?.cancel()
         super.onStop()
+    }
+
+    override fun onDestroy() {
+        timer?.cancel()
+        super.onDestroy()
     }
 }

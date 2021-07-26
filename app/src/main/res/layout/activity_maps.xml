@@ -13,33 +13,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids="searchFAB,searchTextInputLayout" />
+        app:constraint_referenced_ids="searchFAB,searchTextInputEditText" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/searchTextInputLayout"
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/searchTextInputEditText"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:hint="@string/search_view_hint"
         android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:padding="16dp"
+        android:text="@string/search_view_predefined_text"
         app:layout_constraintBottom_toTopOf="@id/map"
         app:layout_constraintEnd_toStartOf="@id/searchFAB"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-            android:id="@+id/searchTextInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:hint="@string/search_view_hint"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            android:imeOptions="actionDone"
-            android:maxLines="1"
-            android:padding="16dp"
-
-            android:text="@string/search_view_predefined_text" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/searchFAB"
@@ -48,7 +41,7 @@
         android:contentDescription="@string/search_fab"
         android:src="@android:drawable/ic_menu_search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/searchTextInputLayout"
+        app:layout_constraintStart_toEndOf="@id/searchTextInputEditText"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
@@ -60,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchTextInputLayout" />
+        app:layout_constraintTop_toBottomOf="@id/searchTextInputEditText" />
 
     <ProgressBar
         android:id="@+id/placesProgressbar"
