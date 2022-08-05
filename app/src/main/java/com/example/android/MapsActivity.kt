@@ -1,4 +1,4 @@
-package com.example.android.ui.map
+package com.example.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,13 +11,13 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.android.Constants.PLACE_OPEN_FROM
-import com.example.android.R
 import com.example.android.databinding.ActivityMapsBinding
 import com.example.android.extensions.*
 import com.example.android.models.entities.place.Place
 import com.example.android.network.APIConstant.LIMIT
 import com.example.android.network.APIConstant.OFFSET
 import com.example.android.network.Resource
+import com.example.android.ui.map.PlacesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import kotlin.collections.ArrayList
@@ -80,6 +80,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                             } else {
 
                                 drawPinsOnMap(totalPlaces, mMap)
+
                                 showToast("Total Drawn Pin(s): ${totalPlaces.size}")
                             }
                         }
@@ -102,7 +103,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         binding.apply {
             placesProgressbar.visible(false)
-            searchGroup.visible(true)
+            binding.linear1.visible(true)
 
         }
         mMap = googleMap

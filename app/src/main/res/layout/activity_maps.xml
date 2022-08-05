@@ -1,65 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.circularreveal.CircularRevealRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.map.MapsActivity">
+    android:orientation="vertical"
+    >
 
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/searchGroup"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/linear1"
+        android:orientation="horizontal"
         android:visibility="visible"
-        app:constraint_referenced_ids="searchFAB,searchTextInputEditText" />
+        >
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/searchTextInputEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_view_hint"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:padding="16dp"
+            android:text="@string/search_view_predefined_text"/>
 
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/searchTextInputEditText"
-
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/search_view_hint"
-        android:imeOptions="actionDone"
-        android:maxLines="1"
-        android:padding="16dp"
-        android:text="@string/search_view_predefined_text"
-        app:layout_constraintBottom_toTopOf="@id/map"
-        app:layout_constraintEnd_toStartOf="@id/searchFAB"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/searchFAB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/search_fab"
-        android:src="@android:drawable/ic_menu_search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/searchTextInputEditText"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/searchFAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/search_fab"
+            android:src="@android:drawable/ic_menu_search"
+            />
+    </LinearLayout>
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchTextInputEditText" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/linear1" />
 
     <ProgressBar
         android:id="@+id/placesProgressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:visibility="gone" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.circularreveal.CircularRevealRelativeLayout>
